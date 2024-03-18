@@ -14,7 +14,7 @@ const Chart = (props) => {
         type: "pie",
         data: {
           labels: [
-            `Flexi Cap Fund 32.19%`,
+            "Flexi Cap Fund 32.19%",
             "ELSS 26.04%",
             "Small Cap Fund 26.40%",
             "Index Fund 12.03%",
@@ -37,16 +37,17 @@ const Chart = (props) => {
           ],
         },
         options: {
-          responsive: true,
+          // responsive: true,
           plugins: {
             legend: {
               position: "bottom",
               align: 'start',
-              fontSize: 24,
+              fontSize: 12,
+              display: 'flex'
             },
             title: {
               display: true,
-              text: "Pie Chart",
+              // text: "Pie Chart",
             },
           },
         },
@@ -64,20 +65,46 @@ const Chart = (props) => {
           labels: ['Segment 1'],
           datasets: [
             {
-              label: 'Dataset 1',
-              data: [10, 20, 30, 40],
-              backgroundColor: 'rgba(255, 99, 132, 0.5)',
+              label: 'Equity 32.19%',
+              data: [32.19],
+              backgroundColor: '#75D6FF',
               barThickness: 20,
             },
             {
-              label: 'Dataset 2',
-              data: [20, 30, 10, 50],
-              backgroundColor: 'rgba(54, 162, 235, 0.5)',
+              label: 'Gold 26.04%',
+              data: [26.40],
+              backgroundColor: '#75FFFF',
+              barThickness: 20,
+            },
+            {
+              label: 'Bonds 26.40%',
+              data: [26.04],
+              backgroundColor: '#AA75FF',
+              barThickness: 20,
+            },
+            {
+              label: 'Govt. Securities 26.40%',
+              data: [20],
+              backgroundColor: '#FF7BF2',
+              barThickness: 20,
+            },
+            {
+              label: 'Dataset 5',
+              data: [26.40],
+              backgroundColor: '#FFC46A',
+              barThickness: 20,
+            },
+            {
+              label: 'Dataset 6',
+              data: [20],
+              backgroundColor: '#FF8E5D',
               barThickness: 20,
             },
           ],
         },
         options: {
+          // responsive: true,
+          aspectRatio: 1, // Set aspect ratio to 1 for full width
           indexAxis: 'y', // Horizontal bar graph
           scales: {
             x: {
@@ -97,123 +124,134 @@ const Chart = (props) => {
               bottom: 0,
             },
           },
+          plugins: {
+            legend: {
+              // display: true, // Hide legend
+              position: 'bottom',
+              align: 'start',
+              display: 'flex'
+            },
+          },
         },
       });
     }
   };
 
   // Function to create the stacked bar chart
-const renderStackedBarChart = () => {
-  const ctx = chartRef.current?.getContext('2d');
-  if (ctx) {
-    chartInstance = new ChartJS(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Segment 1', 'Segment 2', 'Segment 3'],
-        datasets: [
-          // First segment
-          {
-            label: 'Dataset 1',
-            data: [10],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s1"
-          },
-          {
-            label: 'Dataset 2',
-            data: [20],
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s1"
-          },
-          // Second segment
-          {
-            label: 'Dataset 3',
-            data: [12],
-            backgroundColor: 'rgba(255, 206, 86, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s2",
-          },
-          {
-            label: 'Dataset 4',
-            data: [18],
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s2"
-          },
-          // Third segment
-          {
-            label: 'Dataset 5',
-            data: [15],
-            backgroundColor: 'rgba(153, 102, 255, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s3"
-          },
-          {
-            label: 'Dataset 6',
-            data: [7.5],
-            backgroundColor: 'rgba(255, 159, 64, 0.5)',
-            barPercentage: 0.5, // Adjust segment width
-            stack: "s3"
-          },
-          {
-            label: 'Dataset 7',
-            data: [7.5],
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            barPercentage: 0.5, // Adjust segment width,
-            stack: "s3"
-          },
-        ],
-      },
-      options: {
-        indexAxis: 'y', // Horizontal bar graph
-        scales: {
-          x: {
-            stacked: true,
-            display: false, // Hide x-axis
-          },
-          y: {
-            stacked: true,
-            display: false, // Hide y-axis
-          },
-        },
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-          },
-        },
-        plugins: {
-          legend: {
-            display: true, // Hide legend
-            position: 'bottom',
-            align: 'start',
-          },
-        },
-      },
-    });
-  }
-};
 
-   
+
+  const renderStackedBarChart = () => {
+    const ctx = chartRef.current?.getContext('2d');
+    if (ctx) {
+      chartInstance = new ChartJS(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Segment 1', 'Segment 2', 'Segment 3'],
+          datasets: [
+            // First segment
+            {
+              label: 'Oil & Gas 32.19%',
+              data: [5],
+              backgroundColor: '#75D6FF',
+              barThickness: 40, // Adjust segment width,
+              stack: "s1"
+            },
+            {
+              label: 'Private Bank 26.04%',
+              data: [5],
+              backgroundColor: '#75FFFF',
+              barThickness: 40, // Adjust segment width,
+              stack: "s1"
+            },
+            // Second segment
+            {
+              label: 'Pharmaceuticals 26.40%',
+              data: [4],
+              backgroundColor: '#AA75FF',
+              barThickness: 40, // Adjust segment width,
+              stack: "s2",
+            },
+            {
+              label: 'Construction 12.03%',
+              data: [6],
+              backgroundColor: '#FF7BF2',
+              barThickness: 40, // Adjust segment width,
+              stack: "s2"
+            },
+            // Third segment
+            {
+              label: 'Power Generation 26.40%',
+              data: [5],
+              backgroundColor: '#FFD875',
+              barThickness: 40, // Adjust segment width,
+              stack: "s3"
+            },
+            {
+              label: 'Other 12.03%',
+              data: [2.5],
+              backgroundColor: '#FFC46A',
+              barThickness: 40, // Adjust segment width
+              stack: "s3"
+            },
+            {
+              label: 'Dataset 7',
+              data: [2.5],
+              backgroundColor: '#FF8E5D',
+              barThickness: 40, // Adjust segment width,
+              stack: "s3"
+            },
+          ],
+        },
+        options: {
+          // responsive: true,
+          indexAxis: 'y', // Horizontal bar graph
+          scales: {
+            x: {
+              stacked: true,
+              display: false, // Hide x-axis
+            },
+            y: {
+              stacked: true,
+              display: false, // Hide y-axis
+            },
+          },
+          layout: {
+            padding: {
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+            },
+          },
+          plugins: {
+            legend: {
+              // display: true, // Hide legend
+              position: 'bottom',
+              align: 'start',
+              display: 'flex'
+            },
+          },
+        },
+      });
+    }
+  };
+  
+  
 
   // Render the chart based on props type
   useEffect(() => {
     if (props.type === 'barChart') {
       renderBarChart();
-      chartRef.current.style.width = '200px';
-      chartRef.current.style.height = '200px';
+      chartRef.current.style.width = '100%';
+      chartRef.current.style.height = '400px';
     } else if (props.type === 'stackedBarChart') {
       renderStackedBarChart();
-      chartRef.current.style.width = '300px';
-      chartRef.current.style.height = '300px';
+      chartRef.current.style.width = '100%';
+      chartRef.current.style.height = '1000px';
     } else if (props.type === 'pieChart') {
       renderPieChart();
-      // Apply width and height styles only for the pie chart
-      chartRef.current.style.width = '524px';
-      chartRef.current.style.height = '524px';
+      chartRef.current.style.width = '100%';
+      chartRef.current.style.height = '400px';
     }
 
     // Clean up function to destroy the chart instance when the component unmounts or props change
@@ -229,13 +267,13 @@ const renderStackedBarChart = () => {
     <div
       style={
         props.type === "pieChart"
-          ? { width: "300px", height: "300px" }
+          ? { width: "100%", height: "400px" }
           : {} 
           || props.type === "barChart"
-          ? { width: "200px", height: "200px" }
+          ? { width: "100%", height: "400px" }
           : {}
           || props.type === "stackedBarChart"
-          ? { width: "300px", height: "300px" }
+          ? { width: "100%", height: "800px" }
           : {}
       }
     >
