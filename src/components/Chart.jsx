@@ -43,7 +43,8 @@ const Chart = (props) => {
               position: "bottom",
               align: 'start',
               fontSize: 12,
-              display: 'flex'
+              display: 'flex',
+              family: 'IBM Plex Sans',
             },
             title: {
               display: true,
@@ -129,7 +130,8 @@ const Chart = (props) => {
               // display: true, // Hide legend
               position: 'bottom',
               align: 'start',
-              display: 'flex'
+              display: 'flex',
+              family: 'IBM Plex Sans',
             },
           },
         },
@@ -151,54 +153,54 @@ const Chart = (props) => {
             // First segment
             {
               label: 'Oil & Gas 32.19%',
-              data: [5],
+              data: [15],
               backgroundColor: '#75D6FF',
-              barThickness: 40, // Adjust segment width,
-              stack: "s1"
+              barThickness: 10, // Adjust segment width,
+              stack: 'Segment 1'
             },
             {
               label: 'Private Bank 26.04%',
-              data: [5],
+              data: [15],
               backgroundColor: '#75FFFF',
-              barThickness: 40, // Adjust segment width,
-              stack: "s1"
+              barThickness: 10, // Adjust segment width,
+              stack: 'Segment 1'
             },
             // Second segment
             {
               label: 'Pharmaceuticals 26.40%',
-              data: [4],
+              data: [12],
               backgroundColor: '#AA75FF',
-              barThickness: 40, // Adjust segment width,
-              stack: "s2",
+              barThickness: 10, // Adjust segment width,
+              stack: 'Segment 2'
             },
             {
               label: 'Construction 12.03%',
-              data: [6],
+              data: [18],
               backgroundColor: '#FF7BF2',
-              barThickness: 40, // Adjust segment width,
-              stack: "s2"
+              barThickness: 10, // Adjust segment width,
+              stack: 'Segment 2'
             },
             // Third segment
             {
               label: 'Power Generation 26.40%',
-              data: [5],
+              data: [10],
               backgroundColor: '#FFD875',
-              barThickness: 40, // Adjust segment width,
-              stack: "s3"
+              barThickness: 15, // Adjust segment width,
+              stack: 'Segment 3'
             },
             {
               label: 'Other 12.03%',
-              data: [2.5],
+              data: [10],
               backgroundColor: '#FFC46A',
-              barThickness: 40, // Adjust segment width
-              stack: "s3"
+              barThickness: 15, // Adjust segment width
+              stack: 'Segment 3'
             },
             {
               label: 'Dataset 7',
-              data: [2.5],
+              data: [10],
               backgroundColor: '#FF8E5D',
-              barThickness: 40, // Adjust segment width,
-              stack: "s3"
+              barThickness: 15, // Adjust segment width,
+              stack: 'Segment 3'
             },
           ],
         },
@@ -208,11 +210,15 @@ const Chart = (props) => {
           scales: {
             x: {
               stacked: true,
-              display: false, // Hide x-axis
+              // display: false, // Hide x-axis
             },
             y: {
               stacked: true,
-              display: false, // Hide y-axis
+              // display: false, // Hide y-axis
+              // ticks: {
+              //   // Customize the height of the y-axis ticks as needed
+              //   stepSize: 20, // Adjust step size to change the height
+              // },
             },
           },
           layout: {
@@ -228,7 +234,8 @@ const Chart = (props) => {
               // display: true, // Hide legend
               position: 'bottom',
               align: 'start',
-              display: 'flex'
+              display: 'flex',
+              family: 'IBM Plex Sans',
             },
           },
         },
@@ -243,11 +250,11 @@ const Chart = (props) => {
     if (props.type === 'barChart') {
       renderBarChart();
       chartRef.current.style.width = '100%';
-      chartRef.current.style.height = '400px';
+      // chartRef.current.style.height = '400px';
     } else if (props.type === 'stackedBarChart') {
       renderStackedBarChart();
       chartRef.current.style.width = '100%';
-      chartRef.current.style.height = '1000px';
+      // chartRef.current.style.height = '400px';
     } else if (props.type === 'pieChart') {
       renderPieChart();
       chartRef.current.style.width = '100%';
@@ -270,10 +277,10 @@ const Chart = (props) => {
           ? { width: "100%", height: "400px" }
           : {} 
           || props.type === "barChart"
-          ? { width: "100%", height: "400px" }
+          ? { width: "100%" }
           : {}
           || props.type === "stackedBarChart"
-          ? { width: "100%", height: "800px" }
+          ? { width: "100%" }
           : {}
       }
     >
