@@ -44,7 +44,7 @@ const Chart = (props) => {
               align: 'start',
               fontSize: 12,
               display: 'flex',
-              family: 'IBM Plex Sans',
+              family: 'IBM Plex Sans'
             },
             title: {
               display: true,
